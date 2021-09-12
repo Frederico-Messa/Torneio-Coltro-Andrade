@@ -20,6 +20,7 @@ class Tournament:
         for match_index in range(1, len(self.matches) + 1):
             string += f'### Match {match_index}:'
             string += '\n'
+            string += '\n'
             string += f'{self.matches[match_index - 1]}'
             string += '\n'
             string += '\n'
