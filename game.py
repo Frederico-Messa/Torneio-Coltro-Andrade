@@ -7,7 +7,7 @@ from requests.models import codes
 class Game:
     def __init__(self, link) -> None:
         self.code = link.split('lichess.org/')[-1][:8]
-        self.link = f'lichess.org/{self.code}'
+        self.link = f'https://lichess.org/{self.code}'
         while (request := requests.get(f'https://lichess.org/game/export/{self.code}?pgnInJson=true', headers={'accept': 'application/json'})).status_code != 200:
             print(request.status_code)
             sleep(60)
