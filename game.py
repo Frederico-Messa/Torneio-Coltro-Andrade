@@ -13,7 +13,7 @@ class Game:
             sleep(60)
         self.data = json.loads(request.text)
         if self.data['status'] != 'started':
-            self.result = {'white': 1, 'black': -1, None: 0}[self.data.get('winner', None)]
+            self.result = {'white': 1, 'black': 0, None: 0.5}[self.data.get('winner', None)]
             if self.data['players']['white']['user']['name'] == 'PlixMax' and self.data['players']['black']['user']['name'] == 'ModernCapablanca':
                 self.f_result = self.result
                 self.v_result = 1 - self.result
