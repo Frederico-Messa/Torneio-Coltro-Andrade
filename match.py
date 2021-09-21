@@ -11,14 +11,17 @@ class Match:
     def has_ended(self) -> bool:
         if len(self.games) == 7:
             return True
-        if len(self.games) != 4 and len(self.games) != 6:
+        if len(self.games) in [1, 2, 5]:
             return False
         sum_f_result = 0
         sum_v_result = 0
         for game in self.games:
             sum_f_result += game.f_result
             sum_v_result += game.v_result
-        return sum_f_result != sum_v_result
+        if len(self.games) == 3:
+            return abs(sum_f_result - sum_v_result) > 1
+        else:
+            return abs(sum_f_result - sum_v_result) > 0
 
     def __str__(self) -> str:
         string = ''
