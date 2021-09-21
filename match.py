@@ -41,8 +41,12 @@ class Match:
         v_results = []
         for round_index in range(1, 7 + 1):
             if len(self.games) < round_index:
-                f_results.append('')
-                v_results.append('')
+                if self.has_ended:
+                    f_results.append('-')
+                    v_results.append('-')
+                else:
+                    f_results.append('?')
+                    v_results.append('?')
             else:
                 f_results.append(f'{self.games[round_index - 1].f_result}')
                 v_results.append(f'{self.games[round_index - 1].v_result}')
