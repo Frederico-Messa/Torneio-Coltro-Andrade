@@ -17,11 +17,19 @@ class Tournament:
 
     def __str__(self) -> str:
         string = ''
+        string += '\n'
+        string += '\n'
+        string += '---'
+        string += '\n'
+        string += '\n'
         for match_index in range(len(self.matches), 1 - 1, -1):
             string += f'### Match {match_index}:'
             string += '\n'
             string += '\n'
             string += f'{self.matches[match_index - 1]}'
+            string += '\n'
+            string += '\n'
+            string += '---'
             string += '\n'
             string += '\n'
         return string
